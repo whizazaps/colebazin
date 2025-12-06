@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Art Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <nav class="sidebar">
+            <a href="index.html" class="logo-link">Cole Bazin :)</a>
+            <ul class="menu">
+                <li><a href="index.html">ART</a></li>
+                <li><a href="#">Back to hell with u</a></li>
+                <li><a href="about.html"class="active">About</a></li>
+                <li><a href="#">YEEEE</a></li>
+            </ul>
+            <div class="credits">
+                &copy; 2025 Cole bazin industries. Lol 2023
+            </div>
+        </nav>
+
+        <main class="feed">
+            <h2>About Cole</h2>
+    <p> -First name: Cole <br> 
+	-Last name: Bazin <br>
+	-Age: 34 <br>
+	-From: Vancouver, Canada
+        </main>
+    </div>
+
+</body>
+</html>
