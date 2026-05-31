@@ -1,0 +1,211 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #000;
+    background-color: #fff;
+    
+    /* CURSOR CHANGE: Apply Custom Cursor */
+    cursor: url('images/cutecursor.png'), auto; 
+}
+
+
+/* Applies to all links in the menu when the mouse is hovering */
+.menu a:hover {
+    color: #671822; /* Dims the text to a medium gray */
+    text-decoration: underline;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: clamp(24px, 6vw, 48px);
+}
+
+/* Layout Grid (consolidated further down) */
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    padding: 10px;
+    position: fixed; 
+    height: 100vh;
+    border-right: 1px solid #eee; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-pic {
+    opacity: 0.2; /* Adjust how see-through you want the Neopet */
+    background-color: transparent; 
+    display: block;
+    margin: 20px 0;
+}
+
+.menu a.active {
+    font-weight: bold; 
+    color: #000;
+    
+    /* 1. Add the Image and positioning */
+    background-image: url('images/cutecursor.png'); 
+    background-size: 8px 8px;      /* Set the size of your icon */
+    background-repeat: no-repeat;  /* Ensure the icon doesn't tile */
+    background-position: left center; /* Centers the icon vertically on the left */
+    
+    /* 2. Create space for the image */
+    padding-left: 15px; /* Pushes the text over to make room for the 8px icon */
+    
+    /* Remove old border styling */
+    border-bottom: none; 
+    padding-bottom: 0;
+}
+
+.post {
+    position: relative; 
+    z-index: 1; /* Ensures text is definitely in front */
+}
+.logo-link {
+    /* Removes the default underline */
+    text-decoration: none; 
+    /* Ensures the color stays black */
+    color: #000; 
+    /* Ensures the text is bold and the correct size */
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 40px; /* Keeps the spacing below the logo */
+    display: block;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+}
+
+/* Optional: Add a subtle hover effect if desired */
+.logo-link:hover {
+    opacity: 0.7; 
+}
+
+.menu li {
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+/* TEXT CHANGE (Font): Apply Roboto Mono to Links */
+.menu a {
+    text-decoration: none;
+    color: #000;
+    cursor: crosshair;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+
+
+.bouncing-image {
+    width: 200px; /* or whatever size you like */
+    position: absolute;
+    z-index: 0;
+    opacity: 0.2;
+    pointer-events: none;
+    animation: bounceX 5s linear infinite alternate, 
+               bounceY 3.2s linear infinite alternate;
+}
+
+.container {
+    display: flex;         /* Keeps sidebar and feed side-by-side */
+    position: relative;    /* Needed for the bouncing image to stay inside */
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;      /* Prevents scrollbars when image hits the edge */
+    background-color: #fff; /* Set this back to white if you want a light site */
+}
+
+/* Move back and forth horizontally */
+@keyframes bounceX {
+    from { left: 0; }
+    to { left: calc(100% - 200px); } /* 100% minus image width */
+}
+
+/* Move up and down vertically */
+@keyframes bounceY {
+    from { top: 0; }
+    to { top: calc(100% - 200px); } /* 100% minus image height */
+}
+/* Feed Styling */
+.feed {
+    margin-left: 200px;
+    width: 100%;
+    max-width: 900px; 
+    padding: 20px 40px;
+}
+
+.post {
+    margin-bottom: 80px;
+}
+
+.post-meta {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.post img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.press-release {
+    margin-top: 20px;
+    max-width: 600px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 60px 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    .feed {
+        margin-left: 0;
+        padding: 20px;
+    }
+    .post img {
+        max-width: 100% !important;
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+}
+
+/* Image sizing for post content */
+.post img {
+    max-width: 70%;
+    height: auto;
+    margin: 10px 0;
+}
