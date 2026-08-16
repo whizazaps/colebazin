@@ -16,7 +16,9 @@ body {
     /* CURSOR CHANGE: Apply Custom Cursor */
     cursor: url('images/cutecursor.png'), auto; 
 }
-
+.email {
+  margin-top: 40px;
+}
 
 /* Applies to all links in the menu when the mouse is hovering */
 .menu a:hover {
@@ -113,7 +115,7 @@ h2 {
 
 
 .bouncing-image {
-    width: 200px; /* or whatever size you like */
+    width: 400px ; /* or whatever size you like */
     position: absolute;
     z-index: 0;
     opacity: 0.2;
@@ -151,20 +153,20 @@ h2 {
 }
 
 .post {
-    margin-bottom: 80px;
+    margin-bottom: 0px;
 }
 
 .post-meta {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #000;
-    padding-bottom: 10px;
+    margin-bottom: 0;
+    border-bottom: 0px solid #000;
+    padding-bottom: 0px;
     display: inline-block;
 }
 
 .post img {
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: block;
 }
 
@@ -199,7 +201,8 @@ hr {
         max-width: 100% !important;
         display: block;
         margin: auto;
-        margin-bottom: 20px;
+        margin-bottom: 1
+        0px;
     }
 }
 
