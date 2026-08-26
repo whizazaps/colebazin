@@ -91,6 +91,13 @@ h2 {
     z-index: 100;
 }
 
+.logo-link img {
+    display: block;
+    width: 160px;
+    max-width: 100%;
+    height: auto;
+}
+
 /* Optional: Add a subtle hover effect if desired */
 .logo-link:hover {
     opacity: 0.7; 
@@ -152,8 +159,121 @@ h2 {
     padding: 20px 40px;
 }
 
+.series-header {
+    margin: 30px 0 50px;
+}
+
+.series-header h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: #671822;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.series-header .page-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.series-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 560px;
+}
+
+.series-card {
+    color: #000;
+    text-decoration: none;
+}
+
+.series-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    display: block;
+    object-fit: cover;
+    margin-bottom: 12px;
+    transition: opacity 0.2s ease;
+}
+
+.series-card:hover img {
+    opacity: 0.72;
+}
+
+.series-card span {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.back-link {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.back-link:hover {
+    color: #671822;
+    text-decoration: underline;
+}
+
 .post {
-    margin-bottom: 0px;
+    margin-bottom: 40px;
+}
+
+.home-feature {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.home-feature-image {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    margin: 0 !important;
+    transition: opacity 0.25s ease;
+}
+
+.home-feature-alt {
+    opacity: 0;
+}
+
+.home-feature.is-alt .home-feature-alt {
+    opacity: 1;
+}
+
+.home-feature.is-alt .home-feature-main {
+    opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .home-feature:hover .home-feature-alt {
+        opacity: 1;
+    }
+
+    .home-feature:hover .home-feature-main {
+        opacity: 0;
+    }
 }
 
 .post-meta {
@@ -162,6 +282,66 @@ h2 {
     padding-bottom: 0px;
     display: inline-block;
 }
+
+/* CV-style formatting for the About page */
+.cv-content {
+    max-width: 760px;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #1a1a1a;
+}
+
+.cv-bio {
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.cv-divider {
+    text-align: left;
+    margin: 30px 0;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.cv-section-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.cv-contact {
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.cv-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cv-list + .cv-section-title {
+    margin-top: 30px;
+}
+
+.cv-entry {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.cv-year {
+    flex: 0 0 64px;
+    color: #1a1a1a;
+}
+
+.cv-title {
+    font-style: italic;
+}
+
 
 .post img {
     width: 100%;
@@ -197,6 +377,9 @@ hr {
         margin-left: 0;
         padding: 20px;
     }
+    .series-grid {
+        gap: 16px;
+    }
     .post img {
         max-width: 100% !important;
         display: block;
@@ -211,4 +394,55 @@ hr {
     max-width: 70%;
     height: auto;
     margin: 10px 0;
+    cursor: zoom-in;
+}
+
+/* Lightbox overlay for click-to-enlarge images */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+    cursor: zoom-out;
+    overflow: hidden;
+}
+
+.lightbox-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    touch-action: none;
+    cursor: grab;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.lightbox-close:hover {
+    opacity: 0.6;
 }

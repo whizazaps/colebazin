@@ -1,42 +1,130 @@
 [
   {
-    "image": "images/CB_Painting 6-May8-2026.jpg",
-    "alt": "golem of sorts",
-    "title": "The Golem",
-    "date": "2024",
+    "image": "images/CB_Painting 25-May8-2026.jpg",
+    "alt": "Relax And Scream",
+    "title": "Relax And Scream",
+    "date": "2026",
     "medium": "Oil on canvas",
-    "size": "size"
+    "size": "120cm x 90cm"
+  },
+  {
+    "image": "images/CB_New Shots-Jun11-B.jpg",
+    "alt": "I Will",
+    "title": "I Will",
+    "date": "2026",
+    "medium": "Oil on canvas",
+    "size": "70.5cm x 91cm"
   },
   {
     "image": "images/CB_Painting 23-May8-2026.jpg",
-    "alt": "Exhibition View 2",
-    "title": "The Golem",
-    "date": "2024",
+    "alt": "My Family",
+    "title": "My Family",
+    "date": "2026",
     "medium": "Oil on canvas",
-    "size": "size"
+    "size": "120cm x 90cm"
   },
   {
-    "image": "images/CB_Painting 29-May8-2026.jpg,
-    "alt": "Exhibition View 2",
-    "title": "The Golem",
-    "date": "2024",
+    "image": "images/CB_Painting 24-May8-2026.jpg",
+    "alt": "Holding On",
+    "title": "Holding On",
+    "date": "2026",
     "medium": "Oil on canvas",
-    "size": "size"
+    "size": "50.5cm x 60.5cm"
   },
   {
-    "image": "images/painting-grace.jpg",
-    "alt": "Exhibition View 2",
-    "title": "The Golem",
-    "date": "2024",
+    "image": "images/CB_New Shots-Jun11-A.jpg",
+    "alt": "Untitled; Blocks 1",
+    "title": "Untitled; Blocks 1",
+    "date": "2026",
     "medium": "Oil on canvas",
-    "size": "size"
+    "size": "65.5cm x 91.5cm"
   },
   {
-    "image": "images/painting-untitled1.JPG",
-    "alt": "Exhibition View 2",
-    "title": "The Golem",
-    "date": "2024",
+    "image": "images/CB_New Shots-Jun11-C.jpg",
+    "alt": "Untitled; Blocks 2",
+    "title": "Untitled; Blocks 2",
+    "date": "2026",
     "medium": "Oil on canvas",
-    "size": "size"
+    "size": ""
+  },
+  {
+    "image": "images/CB_New Shots-Jun11-D.jpg",
+    "alt": "Untitled; Blocks 3, Moon",
+    "title": "Untitled; Blocks 3, Moon",
+    "date": "2026",
+    "medium": "Oil on canvas",
+    "size": ""
+  },
+  {
+    "image": "images/CB_Painting 1-May8-2026.jpg",
+    "alt": "Sappy Idiot Yearns Again",
+    "title": "Sappy Idiot Yearns Again",
+    "date": "2026",
+    "medium": "Oil on canvas",
+    "size": "50cm x 75cm"
+  },
+  {
+    "image": "images/CB_Painting 2-May8-2026.jpg",
+    "alt": "Labour Of Love",
+    "title": "Labour Of Love",
+    "date": "2026",
+    "medium": "Oil on canvas",
+    "size": "50cm x 75cm"
+  },
+  {
+    "image": "images/CB_Painting 3-May8-2026.jpg",
+    "alt": "Wind From Paradise",
+    "title": "Wind From Paradise",
+    "date": "2026",
+    "medium": "Oil on linen",
+    "size": "50cm x 75cm"
+  },
+  {
+    "image": "images/CB_Painting 4-May8-2026.jpg",
+    "alt": "Wedge, The Real Terror",
+    "title": "Wedge, The Real Terror",
+    "date": "2026",
+    "medium": "Oil on linen",
+    "size": "50cm x 75cm"
+  },
+  {
+    "image": "images/CB_Painting 5-May8-2026.jpg",
+    "alt": "I Can Feel Our Distance By The Time I Gained",
+    "title": "I Can Feel Our Distance By The Time I Gained",
+    "date": "2026",
+    "medium": "Oil on linen",
+    "size": "45.5cm x 60.5cm"
+  },
+  {
+    "image": "images/CB_Painting 6-May8-2026.jpg",
+    "alt": "Post War Pre War",
+    "title": "Post War Pre War",
+    "date": "2026",
+    "medium": "Oil on linen",
+    "size": "60.5cm x 45.5cm"
+  },
+  {
+    "image": "images/CB_Painting 8-May8-2026.jpg",
+    "alt": "Mid-aged, Stripped, Present",
+    "title": "Mid-aged, Stripped, Present",
+    "date": "2026",
+    "medium": "Oil on canvas",
+    "size": "56cm x 68.5cm"
+  },
+  {
+    "image": "images/CB_Painting 28-May8-2026.jpg",
+    "alt": "Office Chairs",
+    "title": "Office Chairs",
+    "date": "2026",
+    "medium": "Oil on canvas",
+    "size": "152.5cm x 121.5cm"
+  },
+  {
+    "image": "images/CB_Painting 29-May8-2026.jpg",
+    "alt": "East Wind",
+    "title": "East Wind",
+    "date": "2026",
+    "medium": "Oil on canvas",
+    "size": "120cm x 90cm"
   }
 ]

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Relax and Scream",
+    "cover": "images/CB_Painting 25-May8-2026.jpg",
+    "page": "series1.html",
+    "data": "data/series1.json"
+  },
+  {
+    "name": "Flooded Zone; I See You In Passing",
+    "cover": "images/CB_Painting 10-May8-2026.jpg",
+    "page": "series2.html",
+    "data": "data/series2.json"
+  },
+  {
+    "name": "Line Go Up",
+    "cover": "images/CB_Painting 19-May8-2026.jpg",
+    "page": "series3.html",
+    "data": "data/series3.json"
+  },
+  {
+    "name": "Archive",
+    "cover": "images/CB_Painting 15-May8-2026.jpg",
+    "page": "seriesother.html",
+    "data": "data/seriesother.json"
+  }
+]

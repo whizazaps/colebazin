@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
 import html
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA_PATH = ROOT / "data" / "series1.json"
-HTML_PATH = ROOT / "series1.html"
-START_MARKER = "<!-- SERIES1:START -->"
-END_MARKER = "<!-- SERIES1:END -->"
 
 
-def load_artworks():
-    with DATA_PATH.open("r", encoding="utf-8") as f:
+def load_artworks(series_key):
+    data_path = ROOT / "data" / f"series{series_key}.json"
+    with data_path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -23,44 +21,51 @@ def render_artwork(art):
     medium = html.escape(str(art.get("medium", "")))
     size = html.escape(str(art.get("size", "")))
 
+    details = ", ".join(part for part in (medium, size) if part)
+
     return (
         "            <article class=\"post\">\n"
         f"                <img src=\"{image}\" alt=\"{alt}\">\n"
         "                <div class=\"post-meta\">\n"
         f"                    <strong>{title}</strong> {date}<br>\n"
-        f"                    {medium}. {size}<br>\n"
+        f"                    {details}<br>\n"
         "                </div>\n"
         "            </article>"
     )
 
 
 def generate_block(artworks):
-    rows = [render_artwork(art) for art in artworks]
+    rows = [render_artwork(art) for art in artworks if not art.get("hidden")]
     return "\n\n".join(rows)
 
 
-def update_series1_html(new_block):
-    content = HTML_PATH.read_text(encoding="utf-8")
-    start = content.find(START_MARKER)
-    end = content.find(END_MARKER)
+def update_series_html(series_key, new_block):
+    html_path = ROOT / f"series{series_key}.html"
+    start_marker = f"<!-- SERIES{str(series_key).upper()}:START -->"
+    end_marker = f"<!-- SERIES{str(series_key).upper()}:END -->"
+    content = html_path.read_text(encoding="utf-8")
+    start = content.find(start_marker)
+    end = content.find(end_marker)
 
     if start == -1 or end == -1 or end < start:
         raise RuntimeError(
-            "Could not find valid SERIES1 markers in series1.html. "
-            "Add <!-- SERIES1:START --> and <!-- SERIES1:END -->."
+            f"Could not find valid SERIES{str(series_key).upper()} markers in series{series_key}.html. "
+            f"Add {start_marker} and {end_marker}."
         )
 
-    start_insert = start + len(START_MARKER)
+    start_insert = start + len(start_marker)
     replacement = "\n" + new_block + "\n            "
     updated = content[:start_insert] + replacement + content[end:]
-    HTML_PATH.write_text(updated, encoding="utf-8")
+    html_path.write_text(updated, encoding="utf-8")
+    return html_path
 
 
 def main():
-    artworks = load_artworks()
+    series_key = sys.argv[1] if len(sys.argv) > 1 else "1"
+    artworks = load_artworks(series_key)
     new_block = generate_block(artworks)
-    update_series1_html(new_block)
-    print(f"Updated series1.html with {len(artworks)} artworks.")
+    html_path = update_series_html(series_key, new_block)
+    print(f"Updated {html_path.name} with {len(artworks)} artworks.")
 
 
 if __name__ == "__main__":
