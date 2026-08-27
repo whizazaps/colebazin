@@ -5,6 +5,12 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+PRETTY_ROUTES = {
+    "1": "relax-and-scream",
+    "2": "flooded-zone",
+    "3": "line-go-up",
+    "other": "archive",
+}
 
 
 def load_artworks(series_key):
@@ -57,6 +63,14 @@ def update_series_html(series_key, new_block):
     replacement = "\n" + new_block + "\n            "
     updated = content[:start_insert] + replacement + content[end:]
     html_path.write_text(updated, encoding="utf-8")
+    route = PRETTY_ROUTES.get(str(series_key))
+    if route:
+        route_path = ROOT / route / "index.html"
+        route_content = updated.replace('href="style.css"', 'href="../style.css"')
+        route_content = route_content.replace('src="images/', 'src="../images/')
+        route_content = route_content.replace('src="lightbox.js"', 'src="../lightbox.js"')
+        route_content = route_content.replace('src="home-feature.js"', 'src="../home-feature.js"')
+        route_path.write_text(route_content, encoding="utf-8")
     return html_path
 
 
