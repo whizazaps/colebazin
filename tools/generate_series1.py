@@ -67,6 +67,7 @@ def update_series_html(series_key, new_block):
     if route:
         route_path = ROOT / route / "index.html"
         route_content = updated.replace('href="style.css"', 'href="../style.css"')
+        route_content = route_content.replace('href="images/', 'href="../images/')
         route_content = route_content.replace('src="images/', 'src="../images/')
         route_content = route_content.replace('src="lightbox.js"', 'src="../lightbox.js"')
         route_content = route_content.replace('src="home-feature.js"', 'src="../home-feature.js"')

@@ -10,7 +10,7 @@ body {
     font-weight: 100;
     font-size: 14px;
     line-height: 1.4;
-    color: #000;
+    color: #444;
     background-color: #fff;
     
     /* CURSOR CHANGE: Apply Custom Cursor */
@@ -56,7 +56,7 @@ h2 {
 
 .menu a.active {
     font-weight: bold; 
-    color: #000;
+    color: #444;
     
     /* 1. Add the Image and positioning */
     background-image: url('images/cutecursor.png'); 
@@ -80,7 +80,7 @@ h2 {
     /* Removes the default underline */
     text-decoration: none; 
     /* Ensures the color stays black */
-    color: #000; 
+    color: #444; 
     /* Ensures the text is bold and the correct size */
     font-weight: bold;
     font-size: 18px;
@@ -113,7 +113,7 @@ h2 {
 /* TEXT CHANGE (Font): Apply Roboto Mono to Links */
 .menu a {
     text-decoration: none;
-    color: #000;
+    color: #444;
     cursor: crosshair;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
@@ -160,12 +160,17 @@ h2 {
     padding: 20px 40px;
 }
 
+.series-index {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #444;
+}
+
 .series-header {
     margin: 30px 0 50px;
 }
 
 .series-header h1 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 1;
@@ -181,7 +186,7 @@ h2 {
 }
 
 .series-header .page-title {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 1;
@@ -195,7 +200,7 @@ h2 {
 }
 
 .series-card {
-    color: #000;
+    color: #444;
     text-decoration: none;
 }
 
@@ -212,15 +217,16 @@ h2 {
     opacity: 0.72;
 }
 
-.series-card span {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 13px;
+.series-index .series-card span {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
     font-weight: 400;
+    line-height: 1.5;
 }
 
 .back-link {
     display: inline-block;
-    color: #000;
+    color: #444;
     text-decoration: none;
     font-size: 13px;
 }
@@ -234,10 +240,13 @@ h2 {
     margin-bottom: 40px;
 }
 
+.home-feature,
+.home-intro {
+    width: min(100%, 520px);
+}
+
 .home-feature {
     position: relative;
-    width: 100%;
-    max-width: 520px;
     aspect-ratio: 3 / 4;
     overflow: hidden;
     cursor: pointer;
@@ -253,6 +262,15 @@ h2 {
     object-fit: cover;
     margin: 0 !important;
     transition: opacity 0.25s ease;
+}
+
+.home-intro {
+    margin: 72px 0 0;
+    color: #aaa;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .home-feature-alt {
@@ -288,7 +306,15 @@ h2 {
 .cv-content {
     max-width: 760px;
     font-family: Georgia, 'Times New Roman', serif;
-    color: #1a1a1a;
+    color: #444;
+}
+
+.about-image {
+    display: block;
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 24px;
 }
 
 .cv-bio {
@@ -302,7 +328,7 @@ h2 {
     text-align: left;
     margin: 30px 0;
     font-size: 16px;
-    color: #1a1a1a;
+    color: #444;
 }
 
 .cv-section-title {
@@ -336,11 +362,32 @@ h2 {
 
 .cv-year {
     flex: 0 0 64px;
-    color: #1a1a1a;
+    color: #444;
 }
 
 .cv-title {
     font-style: italic;
+}
+
+.cv-exhibition {
+    display: inline-block;
+}
+
+.cv-exhibition-link {
+    color: inherit;
+}
+
+.post .cv-exhibition-preview {
+    display: none;
+    width: 300px;
+    max-width: min(300px, 50vw);
+    height: auto;
+    margin: 8px 0 0;
+}
+
+.post .cv-exhibition-link:hover + .cv-exhibition-preview,
+.post .cv-exhibition-link:focus + .cv-exhibition-preview {
+    display: block;
 }
 
 .site-footer {
