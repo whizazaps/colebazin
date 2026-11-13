@@ -7,8 +7,13 @@
     closeBtn.className = 'lightbox-close';
     closeBtn.setAttribute('aria-label', 'Close');
     closeBtn.textContent = '\u00D7';
+    var rotateBtn = document.createElement('button');
+    rotateBtn.className = 'lightbox-rotate';
+    rotateBtn.setAttribute('aria-label', 'Rotate');
+    rotateBtn.textContent = '\u21BB';
     overlay.appendChild(img);
     overlay.appendChild(closeBtn);
+    overlay.appendChild(rotateBtn);
     document.body.appendChild(overlay);
 
     var MIN_SCALE = 1;
@@ -16,9 +21,10 @@
     var scale = 1;
     var originX = 0; // pan offset in px
     var originY = 0;
+    var rotation = 0; // degrees, multiples of 90
 
     function applyTransform() {
-        img.style.transform = 'translate(' + originX + 'px, ' + originY + 'px) scale(' + scale + ')';
+        img.style.transform = 'translate(' + originX + 'px, ' + originY + 'px) scale(' + scale + ') rotate(' + rotation + 'deg)';
     }
 
     function resetZoom() {
@@ -28,33 +34,45 @@
         applyTransform();
     }
 
+    function setRotation(deg) {
+        rotation = deg;
+        img.classList.toggle('sideways', rotation % 180 !== 0);
+        resetZoom();
+    }
+
     function clampScale(s) {
         return Math.min(MAX_SCALE, Math.max(MIN_SCALE, s));
     }
 
-    function open(src, alt) {
+    function open(src, alt, rotatable) {
         img.src = src;
         img.alt = alt || '';
-        resetZoom();
+        rotateBtn.hidden = !rotatable;
+        setRotation(0);
         overlay.classList.add('open');
     }
 
     function close() {
         overlay.classList.remove('open');
         img.src = '';
-        resetZoom();
+        setRotation(0);
     }
 
     document.addEventListener('click', function (e) {
         if (scale !== 1) return; // avoid closing while zoomed in / after a drag
         var target = e.target.closest('.post img');
         if (target) {
-            open(target.src, target.alt);
+            open(target.src, target.alt, !!target.closest('.flash-grid'));
             return;
         }
         if (e.target === overlay || e.target === img) {
             close();
         }
+    });
+
+    rotateBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setRotation((rotation + 90) % 360);
     });
 
     closeBtn.addEventListener('click', function (e) {
@@ -64,6 +82,9 @@
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') close();
+        if ((e.key === 'r' || e.key === 'R') && overlay.classList.contains('open') && !rotateBtn.hidden) {
+            setRotation((rotation + 90) % 360);
+        }
     });
 
     // Desktop: scroll/trackpad wheel to zoom, centered on the cursor

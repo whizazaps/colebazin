@@ -471,6 +471,33 @@ hr {
     cursor: zoom-in;
 }
 
+/* Flash gallery grid */
+.post.flash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    align-items: center;
+}
+
+.post.flash-grid img {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.about-more-link {
+    display: inline-block;
+    margin-top: 40px;
+    color: #444;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.about-more-link:hover {
+    color: #671822;
+    text-decoration: underline;
+}
+
 /* Lightbox overlay for click-to-enlarge images */
 .lightbox-overlay {
     position: fixed;
@@ -498,6 +525,34 @@ hr {
     object-fit: contain;
     touch-action: none;
     cursor: grab;
+}
+
+.lightbox-overlay img.sideways {
+    max-width: 90vh;
+    max-height: 90vw;
+}
+
+.lightbox-rotate {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.lightbox-rotate:hover {
+    opacity: 0.6;
+}
+
+.lightbox-rotate[hidden] {
+    display: none;
 }
 
 .lightbox-close {
